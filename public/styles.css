@@ -4,3 +4,21 @@
   overflow: hidden;
   height:50vh;
 }
+
+nav a {
+  color: #F6F6F6;
+  text-decoration: none;
+}
+nav {
+  background-color: #212121;
+
+}
+
+.home:hover {
+  color: #94B49F;
+  text-decoration: none;
+}
+
+.fa-heart:hover {
+  color: red;
+}
