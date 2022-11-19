@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <%- include ('./partials/head.ejs') %>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4">
+    <div class="container-fluid">
+      <div class="navbar-nav">
+        <a class="nav-item" href="#">
+          <h4>HikingTrails</h4>
+        </a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="nav-item"><a href="#">
+            <h4><i class="fa-solid fa-heart"></i></h4>
+          </a></li>
+      </ul>
+    </div>
+  </nav>
+<div class="container">
+
+
+  <div id="carouselExampleIndicators" class="container carousel slide" data-ride="carousel" width='50%'>
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="https://travel.home.sndimg.com/content/dam/images/travel/fullset/2012/08/24/a0/us-hiking-trails_ss_001.rend.hgtvcom.966.725.suffix/1491580965291.jpeg" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Find the right trail for you</h3>
+          <p><em>Over 1,000,000 trails to choose from!</em></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="https://healthpayerintelligence.com/images/site/features/GettyImages-1135131695.jpg" alt="Second slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Choose a trail that suits your pace</h3>
+          <p><em>Difficulty rating for every trail</em></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="https://cdn.nerdschalk.com/wp-content/uploads/2022/03/favorite-logo-4-759x427.png?width=800" alt="Third slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Found a trail but not ready to hike it?</h3>
+          <p><em>Favorite it to access it later!</em></p>
+        </div>
+      </div>
+    </div>
+    <% for (let i=0; i<trails.length; i++) { %>
+    <a href="#" class="btn">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%=trails[i].image%>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="text-dark card-title"><%=trails[i].trailName%></h5>
+          <p class="card-text"><%=trails[i].difficulty%></p>
+        </div>
+      </div>
+    </a>
+    <% } %>
+</div>
+</body>
+
+</html>
