@@ -17,20 +17,22 @@
         <img src="<%=trail.image%>" alt="" width="80%">
       </div>
       <div class="m-5">
-        <h4>Name: <%=trail.trailName%></h4>
-        <h4>Description: <%=trail.description%></h4>
-        <h4>Miles: <%=trail.length%></h4>
-        <h4>Difficulty: <%=trail.difficulty%></h4>
-        <h4>Quality: <%=trail.quality%></h4>
+        <form class="" action="/favorites" method="POST">
+          <div class="">
+            <h4>Name: <article name="trailName"><%=trail.trailName%></article></h4>
+            <h4>Description: <article name="description"><%=trail.description%></article></h4>
+            <h4>Miles: <article name="length"><%=trail.length%></article></h4>
+            <h4>Difficulty: <article name="difficulty"><%=trail.difficulty%></article></h4>
+            <h4>Quality: <article name="quality"><%=trail.quality%></article></h4>
+          </div>
+          <div class="container">
+            <a class="text-decoration-none" href="/">
+              <button class="p-3 m-3 rounded" type="submit" name="button">Add to Favs <i class="fa-solid fa-heart"></i></button>
+            </a>
+        </div>
+        </form>
       </div>
     </div>
-
-    <form class="container rounded text-decoration-none d-flex justify-content-center" action="/" method="POST">
-      <a class="" href="/">
-        <button class="p-3 m-3 rounded" type="submit" name="button">Add to Favs <i class="fa-solid fa-heart"></i></button>
-      </a>
-    </form>
-
   </div>
 
 

@@ -7,6 +7,8 @@ app.use(express.urlencoded({extended: true}))
 const TrailSchema = require('./models/hiking_trails.js')
 const Data = require('./models/hiking_data.js')
 
+const FavoritesSchema = require('./models/favorite_trails.js')
+
 app.use( express.static( "public" ) );
 app.use(methodOverride('_method'))
 
@@ -18,6 +20,8 @@ app.use(methodOverride('_method'))
 
 // GET Methods
 
+
+// Index Pages
 app.get("/", (req, res) => {
   TrailSchema.find({}, (error, allTrails) => {
     res.render('trails_index.ejs', {
@@ -26,11 +30,22 @@ app.get("/", (req, res) => {
   })
 })
 
+app.get("/favorites", (req, res) => {
+  FavoritesSchema.find({}, (error, allFavs) => {
+    res.render('favorites_index.ejs', {
+      favs: allFavs
+    })
+  })
+})
+
+// New Pages
 app.get("/newtrail", (req, res) => {
   res.render('trails_new.ejs')
 })
 
 
+
+// Show Pages
 
 app.get("/:_id", (req, res) => {
   TrailSchema.findById(req.params._id, (err, foundTrail) => {
@@ -44,12 +59,19 @@ app.get("/:_id", (req, res) => {
 })
 
 
+// Creating new data
+
 app.post('/approvalsent', (req, res) => {
         TrailSchema.create(req.body, (error, submittedTrail) => {
             res.render('approval_sent.ejs')
     })
 })
 
+app.post('/favorites', (req, res) => {
+  FavoritesSchema.create(req.body, (error, likedTrail) => {
+    res.render('favorites_index.ejs')
+  })
+})
 
 
 

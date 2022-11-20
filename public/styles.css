@@ -27,3 +27,8 @@ nav {
 .fa-heart:hover {
   color: red;
 }
+
+.jumbotron {
+  background-color: #6D9886 !important;
+  color: white;
+}
