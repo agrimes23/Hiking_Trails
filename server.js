@@ -24,8 +24,13 @@ app.get("/", (req, res) => {
       trails: allTrails
     })
   })
-
 })
+
+app.get("/newtrail", (req, res) => {
+  res.render('trails_new.ejs')
+})
+
+
 
 app.get("/:_id", (req, res) => {
   TrailSchema.findById(req.params._id, (err, foundTrail) => {
@@ -35,10 +40,15 @@ app.get("/:_id", (req, res) => {
         trail: foundTrail
       }
     )
-
   })
 })
 
+
+app.post('/approvalsent', (req, res) => {
+        TrailSchema.create(req.body, (error, submittedTrail) => {
+            res.render('approval_sent.ejs')
+    })
+})
 
 
 

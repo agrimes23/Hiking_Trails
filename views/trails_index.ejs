@@ -12,7 +12,7 @@
 
   <%- include ('./partials/navbar.ejs') %>
 
-  <div class="container d-flex align-items-center">
+  <div class="container column d-flex align-items-center">
 
     <div class="container row d-flex justify-content-center">
 
@@ -24,7 +24,7 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="https://travel.home.sndimg.com/content/dam/images/travel/fullset/2012/08/24/a0/us-hiking-trails_ss_001.rend.hgtvcom.966.725.suffix/1491580965291.jpeg" class="d-block carousel-img" alt="...">
+            <img src="/img/hiking_trail.jpg" class="d-block carousel-img" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h3>Find the right trail for you</h3>
               <p><em>Over 1,000,000 trails to choose from!</em></p>
@@ -54,6 +54,13 @@
           <span class="visually-hidden"></span>
         </button> -->
       </div>
+
+    <div class="container d-flex justify-content-center m-4">
+      <form class="" action="/newtrail">
+        <button type="submit" class="new-trial-btn btn-info rounded p-3" name="button">Submit New Trail Request</button>
+      </form>
+    </div>
+
 
 
       <div class="container row d-flex justify-content-around">

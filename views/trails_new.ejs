@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <%- include ('./partials/head.ejs') %>
+  </head>
+  <body>
+    <%- include ('./partials/navbar.ejs') %>
+    <div class="container justify-content-center new-page">
+      <div class="card m-3">
+        <div class="d-flex justify-content-center m-3">
+          <img src="https://rosewoodmarketing.ca/wp-content/uploads/2015/12/A-new-adventure-awaits-e1521065855541.png" alt="" width="80%">
+        </div>
+        <form class="form-group p-5" action="/approvalsent" method="POST">
+          <h4>Name: <input class="m-2 form-control w-50" type="text" name="trailName" /> </h4>
+          <h4>Description: <input class="m-2 form-control w-50" type="text" name="description" /></h4>
+          <h4>Miles: <input class="m-2 form-control w-50" type="number" name="length" /></h4>
+          <h4>Difficulty: <input class="m-2 form-control w-50" type="text" name="difficulty" /></h4>
+          <h4>Quality: <input class="m-2 form-control w-50" type="text" name="quality" /></h4>
+          <input class="m-3 rounded p-3" type="submit" value="Submit New Trail Request" />
+        </form>
+      </div>
+  </body>
+</html>
