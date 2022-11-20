@@ -27,6 +27,18 @@ app.get("/", (req, res) => {
 
 })
 
+app.get("/:_id", (req, res) => {
+  TrailSchema.findById(req.params._id, (err, foundTrail) => {
+    res.render(
+      'trails_show.ejs',
+      {
+        trail: foundTrail
+      }
+    )
+
+  })
+})
+
 
 
 

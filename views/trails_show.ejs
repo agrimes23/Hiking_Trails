@@ -10,11 +10,26 @@
 </head>
 
 <body>
-  <%- include ('./partials/head.ejs') %>
-  <div class="container">
-    <div class="">
-
+  <%- include ('./partials/navbar.ejs') %>
+  <div class="container justify-content-center show-page">
+    <div class="card m-3">
+      <div class="d-flex justify-content-center m-3">
+        <img src="<%=trail.image%>" alt="" width="80%">
+      </div>
+      <div class="m-5">
+        <h4>Name: <%=trail.trailName%></h4>
+        <h4>Description: <%=trail.description%></h4>
+        <h4>Miles: <%=trail.length%></h4>
+        <h4>Difficulty: <%=trail.difficulty%></h4>
+        <h4>Quality: <%=trail.quality%></h4>
+      </div>
     </div>
+
+    <form class="container rounded text-decoration-none d-flex justify-content-center" action="/" method="POST">    
+      <a class="" href="/">
+        <button class="p-3 m-3 rounded" type="submit" name="button">Add to Favs <i class="fa-solid fa-heart"></i></button>
+      </a>
+    </form>
 
   </div>
 
