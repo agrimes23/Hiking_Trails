@@ -5,10 +5,11 @@ const app = express()
 app.use(express.urlencoded({extended: true}))
 
 const TrailSchema = require('./models/hiking_trails.js')
+const FavoritesSchema = require('./models/favorite_trails.js')
 const Data = require('./models/hiking_data.js')
 
 app.use( express.static( "public" ) );
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 app.listen(3000, () => {
   console.log('listening...');
@@ -37,8 +38,16 @@ app.get("/", (req, res) => {
   })
 })
 
+// app.get("/favorites", (req, res) => {
+//   TrailSchema.find({liked: true}, (error, allFavs) => {
+//     res.render('favorites_index.ejs', {
+//       favs: allFavs
+//     })
+//   })
+// })
+
 app.get("/favorites", (req, res) => {
-  TrailSchema.find({liked: true}, (error, allFavs) => {
+  FavoritesSchema.find({}, (error, allFavs) => {
     res.render('favorites_index.ejs', {
       favs: allFavs
     })
@@ -46,8 +55,19 @@ app.get("/favorites", (req, res) => {
 })
 
 // New Pages
-app.get("/newtrail", (req, res) => {
+app.get("/new/trail", (req, res) => {
   res.render('trails_new.ejs')
+})
+
+app.post('/favorites', (req, res) => {
+  console.log(req.body);
+  FavoritesSchema.create(req.body, (err, likedTrail) => {
+    // ????
+    // FavoritesSchema.findByIdAndUpdate(req.body._id, {liked: true}, {new: true}, (err, updatedTrail) => {
+    //   res.redirect('/favorites')
+    // })
+    res.redirect('/favorites')
+  })
 })
 
 
@@ -65,12 +85,16 @@ app.get("/:_id", (req, res) => {
 })
 
 // Updating data
-app.put('/favorites', (req, res) => {
-  console.log(req.body._id);
-  TrailSchema.findByIdAndUpdate(req.body._id, {liked: true}, {new: true}, (err, updatedTrail) => {
-    res.redirect('/favorites')
-  })
-})
+// app.put('/favorites', (req, res) => {
+//   console.log(req.body._id);
+//   TrailSchema.findByIdAndUpdate(req.body._id, {liked: true}, {new: true}, (err, updatedTrail) => {
+//     res.redirect('/favorites')
+//   })
+// })
+
+
+
+
 
 
 // Creating new data

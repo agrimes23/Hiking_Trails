@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const trailsSchema = new mongoose.Schema({
+const favoriteSchema = new mongoose.Schema({
   trailName: String,
   trailImage: String,
   mapsLink: String,
@@ -11,6 +11,6 @@ const trailsSchema = new mongoose.Schema({
   liked: {type: Boolean, default: false}
 })
 
-const trailsCollection = mongoose.model('trailInfo', trailsSchema)
+const favoriteCollection = mongoose.model('Favorite', favoriteSchema)
 
-module.exports = trailsCollection
+module.exports = favoriteCollection
