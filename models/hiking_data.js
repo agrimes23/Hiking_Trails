@@ -7,6 +7,7 @@ module.exports = [
     length: 4.5,
     difficulty: "⭐⭐⭐",
     quality: "⭐⭐⭐⭐",
+    liked: false,
   },
   {
     trailName: "Midewin National Tallgrass Prairie",
@@ -16,6 +17,7 @@ module.exports = [
     length: 3,
     difficulty: "⭐⭐",
     quality: "⭐⭐⭐",
+    liked: false,
   },
   {
     trailName: "Kankakee River Stat Park Trail",
@@ -25,6 +27,7 @@ module.exports = [
     length: 29,
     difficulty: "⭐⭐⭐⭐⭐",
     quality: "⭐⭐",
+    liked: false,
   },
   {
     trailName: "Waterfall Glen Forest Preserve",
@@ -34,6 +37,7 @@ module.exports = [
     length: 11,
     difficulty: "⭐⭐⭐⭐⭐",
     quality: "⭐⭐⭐",
+    liked: false,
   },
   {
     trailName: "Ferne Clyffe State Park",
@@ -43,5 +47,6 @@ module.exports = [
     length: 2.1,
     difficulty: "⭐",
     quality: "⭐⭐⭐⭐⭐",
+    liked: false,
   },
 ]

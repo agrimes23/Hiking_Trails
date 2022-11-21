@@ -26,9 +26,16 @@
     </div>
 
 <!-- might need -->
-    <form class="container d-flex" action="/favorites/saved" method="POST">
-      <input class="p-3 m-3 rounded" type="submit" value="Add to Favs" />
-    </form>
+    <% if (trail.liked === true) { %>
+      <h1>✨ already favorited ✨</h1> %>
+    <% } else { %>
+      <form class="container d-flex" action="/favorites?_method=PUT" method="POST">
+        <input type="hidden" name="_id" value="<%=trail._id%>">
+        <input class="p-3 m-3 rounded" name="" type="submit" value="Add to Favs" />
+      </form>
+
+    <% } %>
+
 
   </div>
 

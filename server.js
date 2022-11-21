@@ -10,7 +10,16 @@ const Data = require('./models/hiking_data.js')
 app.use( express.static( "public" ) );
 app.use(methodOverride('_method'))
 
-// TrailSchema.create(Data, (error, createdPokemon) => {
+app.listen(3000, () => {
+  console.log('listening...');
+})
+
+mongoose.connect('mongodb://localhost:27017/trails', () => {
+  console.log('connection with mongod is established');
+})
+
+
+// TrailSchema.create(Data, (error, createdTrails) => {
 // //^your schema  //^your pokemon.js
 //   console.log("done!");
 // })
@@ -29,7 +38,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/favorites", (req, res) => {
-  FavoritesSchema.find({}, (error, allFavs) => {
+  TrailSchema.find({liked: true}, (error, allFavs) => {
     res.render('favorites_index.ejs', {
       favs: allFavs
     })
@@ -40,7 +49,6 @@ app.get("/favorites", (req, res) => {
 app.get("/newtrail", (req, res) => {
   res.render('trails_new.ejs')
 })
-
 
 
 // Show Pages
@@ -56,20 +64,19 @@ app.get("/:_id", (req, res) => {
   })
 })
 
-// Creating new data
-
-app.post('/approval/sent', (req, res) => {
-  TrailSchema.create(req.body, (error, submittedTrail) => {
-    console.log(req.body);
-    res.render('approval_sent.ejs')
+// Updating data
+app.put('/favorites', (req, res) => {
+  console.log(req.body._id);
+  TrailSchema.findByIdAndUpdate(req.body._id, {liked: true}, {new: true}, (err, updatedTrail) => {
+    res.redirect('/favorites')
   })
 })
 
 
-app.listen(3000, () => {
-  console.log('listening...');
-})
+// Creating new data
 
-mongoose.connect('mongodb://localhost:27017/trails', () => {
-  console.log('connection with mongod is established');
+app.post('/approval/sent', (req, res) => {
+  TrailSchema.create(req.body, (error, submittedTrail) => {
+    res.render('approval_sent.ejs')
+  })
 })
