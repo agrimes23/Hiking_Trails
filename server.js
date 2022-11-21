@@ -7,8 +7,6 @@ app.use(express.urlencoded({extended: true}))
 const TrailSchema = require('./models/hiking_trails.js')
 const Data = require('./models/hiking_data.js')
 
-const FavoritesSchema = require('./models/favorite_trails.js')
-
 app.use( express.static( "public" ) );
 app.use(methodOverride('_method'))
 
@@ -58,21 +56,14 @@ app.get("/:_id", (req, res) => {
   })
 })
 
-
 // Creating new data
 
-app.post('/approvalsent', (req, res) => {
-        TrailSchema.create(req.body, (error, submittedTrail) => {
-            res.render('approval_sent.ejs')
-    })
-})
-
-app.post('/favorites', (req, res) => {
-  FavoritesSchema.create(req.body, (error, likedTrail) => {
-    res.render('favorites_index.ejs')
+app.post('/approval/sent', (req, res) => {
+  TrailSchema.create(req.body, (error, submittedTrail) => {
+    console.log(req.body);
+    res.render('approval_sent.ejs')
   })
 })
-
 
 
 app.listen(3000, () => {
