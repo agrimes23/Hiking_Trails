@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <%- include ('./partials/head.ejs') %>
+  </head>
+  <body>
+    <%- include ('./partials/navbar.ejs') %>
+
+    <div class="container justify-content-center fav-show-page">
+      <div class="card m-3">
+        <div class="d-flex justify-content-center m-3">
+          <img src="<%=trail.trailImage%>" alt="" width="80%">
+        </div>
+        <div class="m-5">
+          <h4>Name: <%=fav.trailName%></h4>
+          <h4>Description: <%=fav.description%></h4>
+          <h4>Miles: <%=fav.length%></h4>
+          <h4>Difficulty: <%=fav.difficulty%></h4>
+          <h4>Quality: <%=fav.quality%></h4>
+        </div>
+      </div>
+      <a href="/favorites/<%=fav._id%>/edit">
+        <button type="submit" name="button"></button>
+      </a>
+  </body>
+</html>

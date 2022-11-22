@@ -54,12 +54,38 @@ app.get("/new/trail", (req, res) => {
 
 app.post('/favorites', (req, res) => {
   FavoritesSchema.create(req.body, (err, likedTrail) => {
-    next()
+    res.redirect("/favorites")
+  })
+})
+
+
+// Edit Page
+
+app.get('/favorites/:_id/edit', (req, res) => {
+  FavoritesSchema.findById(req.params._id, (err, foundFav) => {
+    res.render(
+      'favorites_edit.ejs',
+      {
+        fav: foundFav
+      }
+    )
   })
 })
 
 
 // Show Pages
+
+app.get("/favorites/:_id", (req, res) => {
+
+  FavoritesSchema.findById(req.params._id, (err, foundFav) => {
+    res.render(
+      'favorites_show.ejs',
+      {
+        fav: foundFav,
+      }
+    )
+  })
+})
 
 app.get("/:_id", (req, res) => {
 
