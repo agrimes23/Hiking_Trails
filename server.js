@@ -11,13 +11,6 @@ const Data = require('./models/hiking_data.js')
 app.use( express.static( "public" ) );
 app.use(methodOverride('_method'));
 
-app.listen(3000, () => {
-  console.log('listening...');
-})
-
-mongoose.connect('mongodb://localhost:27017/trails', () => {
-  console.log('connection with mongod is established');
-})
 
 
 // TrailSchema.create(Data, (error, createdTrails) => {
@@ -60,13 +53,8 @@ app.get("/new/trail", (req, res) => {
 })
 
 app.post('/favorites', (req, res) => {
-  console.log(req.body);
   FavoritesSchema.create(req.body, (err, likedTrail) => {
-    // ????
-    // FavoritesSchema.findByIdAndUpdate(req.body._id, {liked: true}, {new: true}, (err, updatedTrail) => {
-    //   res.redirect('/favorites')
-    // })
-    res.redirect('/favorites')
+    next()
   })
 })
 
@@ -74,15 +62,33 @@ app.post('/favorites', (req, res) => {
 // Show Pages
 
 app.get("/:_id", (req, res) => {
+
   TrailSchema.findById(req.params._id, (err, foundTrail) => {
     res.render(
       'trails_show.ejs',
       {
-        trail: foundTrail
+        trail: foundTrail,
       }
     )
   })
 })
+
+// // Maybe try doing?
+// const updateFav = () => {
+//   app.post('/favorites', (req, res) => {
+//     FavoritesSchema.create(req.body, (err, likedTrail) => {
+//       next()
+//     })
+//   })
+//   app.put('/favorites', (req, res) => {
+//
+//     TrailSchema.findByIdAndUpdate(req.body._id, {liked: true}, {new: true}, (err, updatedTrail) => {
+//       res.redirect('/favorites')
+//     })
+//   })
+// }
+
+
 
 // Updating data
 // app.put('/favorites', (req, res) => {
@@ -94,13 +100,28 @@ app.get("/:_id", (req, res) => {
 
 
 
-
-
-
 // Creating new data
 
 app.post('/approval/sent', (req, res) => {
   TrailSchema.create(req.body, (error, submittedTrail) => {
     res.render('approval_sent.ejs')
   })
+})
+
+
+// Deleting from favorites
+app.delete("/favorites/:_id", (req, res) => {
+  FavoritesSchema.findByIdAndRemove(req.params._id, (err, favItem) => {
+    res.redirect('/favorites')
+  })
+})
+
+
+
+app.listen(3000, () => {
+  console.log('listening...');
+})
+
+mongoose.connect('mongodb://localhost:27017/trails', () => {
+  console.log('connection with mongod is established');
 })

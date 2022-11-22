@@ -8,7 +8,7 @@ const trailsSchema = new mongoose.Schema({
   length: Number,
   difficulty: String,
   quality: String,
-  liked: {type: Boolean, default: false}
+  liked: {type: Boolean, default: false},
 })
 
 const trailsCollection = mongoose.model('trailInfo', trailsSchema)
