@@ -11,15 +11,10 @@ const Data = require('./models/hiking_data.js')
 app.use( express.static( "public" ) );
 app.use(methodOverride('_method'));
 
-
-
 // TrailSchema.create(Data, (error, createdTrails) => {
 // //^your schema  //^your pokemon.js
 //   console.log("done!");
 // })
-
-
-// GET Methods
 
 
 // Index Pages
@@ -58,19 +53,7 @@ app.post('/favorites', (req, res) => {
   })
 })
 
-
 // Edit Page
-
-app.get('/favorites/:_id/edit', (req, res) => {
-  FavoritesSchema.findById(req.params._id, (err, foundFav) => {
-    res.render(
-      'favorites_edit.ejs',
-      {
-        fav: foundFav
-      }
-    )
-  })
-})
 
 
 // Show Pages
@@ -86,18 +69,37 @@ app.get("/favorites/:_id", (req, res) => {
     )
   })
 })
-
-app.get("/:_id", (req, res) => {
-
-  TrailSchema.findById(req.params._id, (err, foundTrail) => {
+app.put('/favorites/:_id', (req, res) => {
+  FavoritesSchema.findByIdAndUpdate(req.params._id, req.body, {new:true}, (err, updatedFav) => {
+    res.redirect('/favorites')
+  })
+})
+app.get('/favorites/:_id/edit', (req, res) => {
+  FavoritesSchema.findById(req.params._id, (err, foundFav) => {
     res.render(
-      'trails_show.ejs',
+      'favorites_edit.ejs',
       {
-        trail: foundTrail,
+        fav: foundFav
       }
     )
   })
 })
+
+app.get("/:_id", (req, res) => {
+  TrailSchema.findById(req.params._id, (err, foundTrail) => {
+// console.log(`al... ${foundTrail} ...ex`);
+    res.render(
+      'trails_show.ejs',
+      {
+        trail: foundTrail
+      }
+
+    )
+  })
+})
+
+
+
 
 // // Maybe try doing?
 // const updateFav = () => {
@@ -114,8 +116,6 @@ app.get("/:_id", (req, res) => {
 //   })
 // }
 
-
-
 // Updating data
 // app.put('/favorites', (req, res) => {
 //   console.log(req.body._id);
@@ -124,8 +124,6 @@ app.get("/:_id", (req, res) => {
 //   })
 // })
 
-
-
 // Creating new data
 
 app.post('/approval/sent', (req, res) => {
@@ -133,7 +131,6 @@ app.post('/approval/sent', (req, res) => {
     res.render('approval_sent.ejs')
   })
 })
-
 
 // Deleting from favorites
 app.delete("/favorites/:_id", (req, res) => {

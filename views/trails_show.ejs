@@ -11,10 +11,12 @@
 
 <body>
   <%- include ('./partials/navbar.ejs') %>
+
   <div class="container justify-content-center show-page">
     <div class="card m-3">
       <div class="d-flex justify-content-center m-3">
-        <img src="<%=trail.trailImage%>" alt="" width="80%">
+
+        <img src="<%=trail.trailImage%>" width="80%">
       </div>
       <div class="m-5">
         <h4>Name: <%=trail.trailName%></h4>
@@ -25,23 +27,23 @@
       </div>
     </div>
 
-<!-- might need -->
-    <% if (trail.liked === true) { %>
-      <h1>✨ already favorited ✨</h1> %>
+    <!-- might need -->
+    <% if (trail.favoritedItems.liked === true) { %>
+    <h1>✨ already favorited ✨</h1> %>
     <% } else { %>
-      <form class="container d-flex" action="/favorites" method="POST">
-        <input type="hidden" name="_id" value="<%=trail._id%>">
-        <input type="hidden" name="trailImage" value="<%=trail.trailImage%>">
-        <input type="hidden" name="trailName" value="<%=trail.trailName%>">
-        <input type="hidden" name="mapsLink" value="<%=trail.mapsLink%>">
-        <input type="hidden" name="description" value="<%=trail.description%>">
-        <input type="hidden" name="length" value="<%=trail.length%>">
-        <input type="hidden" name="difficulty" value="<%=trail.difficulty%>">
-        <input type="hidden" name="quality" value="<%=trail.quality%>">
+    <form class="container d-flex" action="/favorites" method="POST">
+      <input type="hidden" name="id" value="<%=trail._id%>">
+      <input type="hidden" name="trailImage" value="<%=trail.trailImage%>">
+      <input type="hidden" name="trailName" value="<%=trail.trailName%>">
+      <input type="hidden" name="mapsLink" value="<%=trail.mapsLink%>">
+      <input type="hidden" name="description" value="<%=trail.description%>">
+      <input type="hidden" name="length" value="<%=trail.length%>">
+      <input type="hidden" name="difficulty" value="<%=trail.difficulty%>">
+      <input type="hidden" name="quality" value="<%=trail.quality%>">
 
-        <input type="hidden" name="liked" value="true">
-          <input class="p-3 m-3 rounded" name="" type="submit" value="Add to Favs" />
-      </form>
+      <input type="hidden" name="liked" value="true">
+      <input class="p-3 m-3 rounded" type="submit" value="Add to Favs" />
+    </form>
 
     <% } %>
 

@@ -14,16 +14,16 @@
           <img src="<%=fav.trailImage%>" alt="" width="80%">
         </div>
         <div class="m-5">
+          <h4>Name: <%=fav.trailName%></h4>
           <form class="" action="/favorites/<%=fav._id%>?_method=PUT" method="post">
-            <h4>Name: <%=fav.trailName%></h4>
             <h4>Description: <input type="text" name="description" value="<%=fav.description%>"></h4>
             <h4>Miles: <input type="text" name="length" value="<%=fav.length%>"></h4>
             <h4>Difficulty: <input type="text" name="difficulty" value="<%=fav.difficulty%>"></h4>
             <h4>Quality: <input type="text" name="length" value="<%=fav.quality%>"></h4>
+            <input type="submit" value="Submit Edits">
           </form>
         </div>
       </div>
 
-<input type="text" name="" value="">
   </body>
 </html>
