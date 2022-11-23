@@ -14,13 +14,15 @@
           <img src="<%=fav.trailImage%>" alt="" width="80%">
         </div>
         <div class="m-5">
-          <h4>Name: <%=fav.trailName%></h4>
-          <form class="" action="/favorites/<%=fav._id%>?_method=PUT" method="post">
-            <h4>Description: <input type="text" name="description" value="<%=fav.description%>"></h4>
-            <h4>Miles: <input type="text" name="length" value="<%=fav.length%>"></h4>
-            <h4>Difficulty: <input type="text" name="difficulty" value="<%=fav.difficulty%>"></h4>
-            <h4>Quality: <input type="text" name="quality" value="<%=fav.quality%>"></h4>
-            <input type="submit" value="Submit Edits">
+
+          <form class="form-group" action="/favorites/<%=fav._id%>?_method=PUT" method="post">
+            <h4>Name: <%=fav.trailName%></h4>
+            <h4>Description: </h4>
+            <textarea class="form-control" name="description" rows="8" cols="80"><%=fav.description%></textarea>
+            <h4>Miles: <input class="form-control" type="text" name="length" value="<%=fav.length%>"></h4>
+            <h4>Difficulty: <input class="form-control" type="text" name="difficulty" value="<%=fav.difficulty%>"></h4>
+            <h4>Quality: <input class="form-control" type="text" name="quality" value="<%=fav.quality%>"></h4>
+            <input class="btn btn-info" type="submit" value="Submit Edits">
           </form>
         </div>
       </div>
