@@ -32,7 +32,6 @@
     <h1>✨ already favorited ✨</h1> %>
     <% } else { %>
     <form class="container d-flex" action="/favorites" method="POST">
-      <input type="hidden" name="id" value="<%=trail._id%>">
       <input type="hidden" name="trailImage" value="<%=trail.trailImage%>">
       <input type="hidden" name="trailName" value="<%=trail.trailName%>">
       <input type="hidden" name="mapsLink" value="<%=trail.mapsLink%>">

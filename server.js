@@ -69,13 +69,39 @@ app.get("/favorites/:_id", (req, res) => {
     )
   })
 })
-app.put('/favorites/:_id', (req, res) => {
-  FavoritesSchema.findByIdAndUpdate(req.params._id, req.body, {new:true}, (err, updatedFav) => {
-    res.redirect('/favorites')
+
+
+
+
+// app.get("/:_id", (req, res) => {
+//   TrailSchema.findById(req.params._id, (err, foundTrail) => {
+//     console.log(`he... ${foundTrail} ...llo`);
+//     console.log(`al... ${req.params._id} ...ex `);
+//     res.render(
+//       'trails_show.ejs',
+//       {
+//         trail: foundTrail
+//       }
+//
+//     )
+//   })
+// })
+
+app.get('/show/:id', (req, res) => {
+  TrailSchema.findById(req.params.id, (err, foundTrail) => {
+    res.render(
+      'trails_show.ejs',
+      {
+        trail: foundTrail
+      }
+    )
   })
 })
-app.get('/favorites/:_id/edit', (req, res) => {
-  FavoritesSchema.findById(req.params._id, (err, foundFav) => {
+
+// update edited favorite
+
+app.get('/favorites/:id/edit', (req, res) => {
+  FavoritesSchema.findById(req.params.id, (err, foundFav) => {
     res.render(
       'favorites_edit.ejs',
       {
@@ -85,18 +111,16 @@ app.get('/favorites/:_id/edit', (req, res) => {
   })
 })
 
-app.get("/:_id", (req, res) => {
-  TrailSchema.findById(req.params._id, (err, foundTrail) => {
-// console.log(`al... ${foundTrail} ...ex`);
-    res.render(
-      'trails_show.ejs',
-      {
-        trail: foundTrail
-      }
 
-    )
+app.put('/favorites/:id', (req, res) => {
+  FavoritesSchema.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedFav) => {
+    res.redirect('/favorites')
   })
 })
+
+
+
+
 
 
 
