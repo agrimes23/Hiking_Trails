@@ -53,9 +53,6 @@ app.post('/favorites', (req, res) => {
   })
 })
 
-// Edit Page
-
-
 // Show Pages
 
 app.get("/favorites/:_id", (req, res) => {
@@ -71,30 +68,20 @@ app.get("/favorites/:_id", (req, res) => {
 })
 
 
-
-
-// app.get("/:_id", (req, res) => {
-//   TrailSchema.findById(req.params._id, (err, foundTrail) => {
-//     console.log(`he... ${foundTrail} ...llo`);
-//     console.log(`al... ${req.params._id} ...ex `);
-//     res.render(
-//       'trails_show.ejs',
-//       {
-//         trail: foundTrail
-//       }
-//
-//     )
-//   })
-// })
-
 app.get('/show/:id', (req, res) => {
   TrailSchema.findById(req.params.id, (err, foundTrail) => {
-    res.render(
-      'trails_show.ejs',
-      {
-        trail: foundTrail
-      }
-    )
+    FavoritesSchema.findById(req.params.id, (error, foundFav)=> {
+      console.log(`Fav?= ${foundFav}`)
+      res.render(
+        'trails_show.ejs',
+        {
+          trail: foundTrail,
+          fav: foundFav
+        }
+      )
+
+    })
+
   })
 })
 
@@ -119,35 +106,6 @@ app.put('/favorites/:id', (req, res) => {
 })
 
 
-
-
-
-
-
-
-// // Maybe try doing?
-// const updateFav = () => {
-//   app.post('/favorites', (req, res) => {
-//     FavoritesSchema.create(req.body, (err, likedTrail) => {
-//       next()
-//     })
-//   })
-//   app.put('/favorites', (req, res) => {
-//
-//     TrailSchema.findByIdAndUpdate(req.body._id, {liked: true}, {new: true}, (err, updatedTrail) => {
-//       res.redirect('/favorites')
-//     })
-//   })
-// }
-
-// Updating data
-// app.put('/favorites', (req, res) => {
-//   console.log(req.body._id);
-//   TrailSchema.findByIdAndUpdate(req.body._id, {liked: true}, {new: true}, (err, updatedTrail) => {
-//     res.redirect('/favorites')
-//   })
-// })
-
 // Creating new data
 
 app.post('/approval/sent', (req, res) => {
@@ -157,6 +115,7 @@ app.post('/approval/sent', (req, res) => {
 })
 
 // Deleting from favorites
+
 app.delete("/favorites/:_id", (req, res) => {
   FavoritesSchema.findByIdAndRemove(req.params._id, (err, favItem) => {
     res.redirect('/favorites')

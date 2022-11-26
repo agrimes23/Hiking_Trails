@@ -28,7 +28,8 @@
     </div>
 
     <!-- might need -->
-    <% if (trail.favoritedItems.liked === true) { %>
+    <% console.log(trail) %>
+    <% if (fav.liked === true) { %>
     <h1>✨ already favorited ✨</h1> %>
     <% } else { %>
     <form class="container d-flex" action="/favorites" method="POST">

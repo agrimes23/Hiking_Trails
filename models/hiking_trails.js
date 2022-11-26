@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Favorite = require('./favorite_trails.js')
 
 const trailsSchema = new mongoose.Schema({
   trailName: String,
@@ -9,10 +10,7 @@ const trailsSchema = new mongoose.Schema({
   difficulty: String,
   quality: String,
   liked: {type: Boolean, default: false},
-  favoritedItems: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Favorite'
-  }]
+  favoritedItems: [Favorite.schema]
 })
 
 const trailsCollection = mongoose.model('trailInfo', trailsSchema)
