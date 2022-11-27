@@ -17,7 +17,34 @@
           <h4>Name: <input class="m-2 form-control w-50" type="text" name="trailName" /> </h4>
           <h4>Description: <input class="m-2 form-control w-50" type="text" name="description" /></h4>
           <h4>Miles: <input class="m-2 form-control w-50" type="number" name="length" /></h4>
-          <h4>Difficulty: <input class="m-2 form-control w-50" type="text" name="difficulty" /></h4>
+          <h4>Difficulty:
+            <div class="stars">
+
+              <script type="javascript">
+              function starClicked() {
+                const starWrapper = document.querySelector(".stars")
+                const stars = document.querySelectorAll(".stars a")
+
+
+// trying to do on click of stars and save it to mongo db
+                stars.forEach((star, clickedIdx) => {
+                  star.addEventListener('click', () => {
+                    starWrapper.classList.add('disabled')
+                    stars.forEach((otherStar, otherIdx) =>{
+                      if (otherIdx <= clickedIdx) {
+                        otherStar.classList.add("active")
+                      }
+                    })
+                  })
+                })
+              }
+              </script>
+              <%for (let i=0; i<5; i++) {%>
+                <a onclick="starClicked()" id='<%=i%>' class="addtocartbutton">⭐</a>
+              <%}%>
+
+            </div></h4>
+
           <h4>Quality: <input class="m-2 form-control w-50" type="text" name="quality" /></h4>
           <input class="m-3 rounded p-3" type="submit" value="Submit New Trail Request" />
         </form>
