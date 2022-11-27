@@ -20,16 +20,18 @@
       </div>
       <div class="m-5">
         <h4>Name: <%=trail.trailName%></h4>
+        <% trail.mapsLink%>
         <h4>Description: <%=trail.description%></h4>
         <h4>Miles: <%=trail.length%></h4>
         <h4>Difficulty: <%=trail.difficulty%></h4>
         <h4>Quality: <%=trail.quality%></h4>
+        <iframe src="<%=trail.mapsLink%>" width="600" height="450" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
 
     <!-- might need -->
     <% console.log(trail) %>
-    <% if (fav.liked === true) { %>
+    <% if (trail.liked === true) { %>
     <h1>✨ already favorited ✨</h1> %>
     <% } else { %>
     <form class="container d-flex" action="/favorites" method="POST">
@@ -42,7 +44,7 @@
       <input type="hidden" name="quality" value="<%=trail.quality%>">
 
       <input type="hidden" name="liked" value="true">
-      <input class="p-3 m-3 rounded" type="submit" value="Add to Favs" />
+      <input class="p-3 m-3 rounded btn btn-info" type="submit" value="Add to Favs" />
     </form>
 
     <% } %>

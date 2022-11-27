@@ -2,7 +2,7 @@ module.exports = [
   {
     trailName: "Jackson Falls Trail",
     trailImage: "https://h8k7j2g6.rocketcdn.me/wp-content/uploads/2021/04/main-falls-1.jpg",
-    mapsLink: "https://goo.gl/maps/jMwSJQ9bK6ezE9XW8",
+    mapsLink: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d54042.12888504957!2d-88.6989709554063!3d37.50497106925785!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8870b108a3e098d5%3A0x4420cc80e78ab8e5!2sJackson%20Falls!5e0!3m2!1sen!2sus!4v1669513615987!5m2!1sen!2sus",
     description: "Has some of the best rock climbing in Illinois, the short Rim Rock Recreational Trail, and the Garden of the Gods, featuring sandstone formations 320 million years old.",
     length: 4.5,
     difficulty: "⭐⭐⭐",
@@ -12,7 +12,7 @@ module.exports = [
   {
     trailName: "Midewin National Tallgrass Prairie",
     trailImage: "https://images.squarespace-cdn.com/content/v1/567070822399a343227dd9c4/1452709859398-MMZ8ZFFBB69DQAV77XXF/image-asset.jpeg",
-    mapsLink: "https://goo.gl/maps/PQAUPy3WUKBzuatm8",
+    mapsLink: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11976.97523081804!2d-88.1089641!3d41.3687874!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e7c531d9c3955%3A0x35a4fa65bbc3c655!2sMidewin%20Iron%20Bridge%20Trailhead!5e0!3m2!1sen!2sus!4v1669513778354!5m2!1sen!2sus",
     description: "The river ensures there’s a variety of nature to be seen, and the park’s trail system offers hiking and biking routes, and is even open for snowmobiling in the winter.",
     length: 3,
     difficulty: "⭐⭐",
@@ -22,7 +22,7 @@ module.exports = [
   {
     trailName: "Kankakee River Stat Park Trail",
     trailImage: "https://static.rootsrated.com/image/upload/s--O-B5yjnO--/t_rr_large_traditional/ng53b2rni7578tzo3slu.jpg",
-    mapsLink: "https://goo.gl/maps/9sMdSmPJi5grhkKZ8",
+    mapsLink: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.6304648295786!2d-88.0132466!3d41.2080294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880dd99fde3d6453%3A0xef63301209e5633a!2sKankakee%20River%20State%20Park!5e0!3m2!1sen!2sus!4v1669513815871!5m2!1sen!2sus",
     description: "Established in 1996 as the nation’s first designated tallgrass prairie, with work ongoing to restore this endangered ecosystem, including the introduction of a herd of bison..",
     length: 29,
     difficulty: "⭐⭐⭐⭐⭐",
@@ -32,7 +32,7 @@ module.exports = [
   {
     trailName: "Waterfall Glen Forest Preserve",
     trailImage: "https://openlands.org/wp-content/uploads/2019/05/Waterfall-Glen-2048x1365.jpg",
-    mapsLink: "https://goo.gl/maps/ytextxa9Gi31YUiUA",
+    mapsLink: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2977.84699363718!2d-87.9744268!3d41.7238204!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e457579ee3019%3A0x4dfff487c7da160f!2sWaterfall%20Glen%20Main%20Parking!5e0!3m2!1sen!2sus!4v1669513854993!5m2!1sen!2sus",
     description: "The main trail is a 9.5-mile loop around the preserve on a limestone surface, with a number of inclines that make it a good workout. Unmarked paths off the main trail can also be explored, but be cautious, as they may not rejoin the loop. In addition to hiking, camping and fishing on the Des Plains River are other recreational draws.",
     length: 11,
     difficulty: "⭐⭐⭐⭐⭐",
@@ -42,7 +42,7 @@ module.exports = [
   {
     trailName: "Ferne Clyffe State Park",
     trailImage: "https://i0.wp.com/midwestnomads.com/wp-content/uploads/2020/05/ferneclyf5-scaled.jpg?fit=2560%2C1707&ssl=1",
-    mapsLink: "https://goo.gl/maps/4XkdRUcFHsG3FKyR8",
+    mapsLink: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12654.383638025016!2d-88.985944!3d37.5410218!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x887743f916e27da9%3A0x3907db568659d1ca!2sFerne%20Clyffe%20Waterfall%20Trail!5e0!3m2!1sen!2sus!4v1669513887288!5m2!1sen!2sus",
     description: "Visiting after a heavy rainfall will ensure the waterfall is flowing nicely, and it can be explored up close by climbing a number of paths that reach the top. Otherwise, most of the trails wind between picturesque woods, with interesting rock formations to explore.",
     length: 2.1,
     difficulty: "⭐",

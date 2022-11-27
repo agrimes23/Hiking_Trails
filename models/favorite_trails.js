@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Trail = require('./hiking_trails.js')
 
 const favoriteSchema = new mongoose.Schema({
   trailName: String,
