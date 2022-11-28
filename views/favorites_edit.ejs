@@ -20,12 +20,29 @@
             <h4>Description: </h4>
             <textarea class="form-control" name="description" rows="8" cols="80"><%=fav.description%></textarea>
             <h4>Miles: <input class="form-control" type="text" name="length" value="<%=fav.length%>"></h4>
-            <h4>Difficulty: <input class="form-control" type="text" name="difficulty" value="<%=fav.difficulty%>"></h4>
-            <h4>Quality: <input class="form-control" type="text" name="quality" value="<%=fav.quality%>"></h4>
+            <h4>Difficulty:
+              <div class="stars">
+                <a class="star-style">⭐</a>
+                <a class="star-style">⭐</a>
+                <a class="star-style">⭐</a>
+                <a class="star-style">⭐</a>
+                <a class="star-style">⭐</a>
+            </div>
+          </h4>
+            <h4>Quality:
+              <div class="stars-quantity">
+              <a class="star-style-quantity">⭐</a>
+              <a class="star-style-quantity">⭐</a>
+              <a class="star-style-quantity">⭐</a>
+              <a class="star-style-quantity">⭐</a>
+              <a class="star-style-quantity">⭐</a>
+            </div>
+          </h4>
             <input class="btn btn-info" type="submit" value="Submit Edits">
           </form>
         </div>
       </div>
-
+      <%- include ('./partials/footer.ejs') %>
+      <script src="./app.js"></script>
   </body>
 </html>

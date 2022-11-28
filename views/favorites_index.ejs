@@ -23,7 +23,13 @@
           <img class="card-img-top hover-shadow" src="<%=favs[i].trailImage%>" alt="Card image cap">
           <div class="card-body d-flex flex-column text-white justify-content-center">
             <h5 class="card-title"><%=favs[i].trailName%></h5>
-            <p class="card-text"><%=favs[i].difficulty%></p>
+            <p class="card-text">
+              <%let star = "⭐"%>
+              <%for (let j=0; j< parseInt(favs[i].difficulty); j++) {%>
+                <%star+='⭐'%>
+              <%}%>
+              <%=star%>
+            </p>
             <form class="" action="/favorites/<%=favs[i].id%>?_method=DELETE" method="post">
               <button class="btn btn-info" type="submit" name="button">Remove from Favs</button>
             </form>

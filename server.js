@@ -120,6 +120,9 @@ app.put('/favorites/:id', (req, res) => {
 // Creating new data
 
 app.post('/approval/sent', (req, res) => {
+  if (req.body.trailImage === "") {
+    req.body.trailImage = "https://i.natgeofe.com/n/c9107b46-78b1-4394-988d-53927646c72b/1095.jpg"
+  }
   TrailSchema.create(req.body, (error, submittedTrail) => {
     res.render('approval_sent.ejs')
   })

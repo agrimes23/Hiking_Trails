@@ -23,8 +23,22 @@
         <% trail.mapsLink%>
         <h4>Description: <%=trail.description%></h4>
         <h4>Miles: <%=trail.length%></h4>
-        <h4>Difficulty: <%=trail.difficulty%></h4>
-        <h4>Quality: <%=trail.quality%></h4>
+        <h4>Difficulty:
+
+          <%let star = "⭐"%>
+          <%for (let i=0; i< parseInt(trail.difficulty); i++) {%>
+            <%star+='⭐'%>
+          <%}%>
+          <%=star%>
+
+
+        </h4>
+        <h4>Quality:
+          <%let starQ = "⭐"%>
+          <%for (let j=0; j< parseInt(trail.quality); j++) {%>
+            <%starQ+='⭐'%>
+          <%}%>
+          <%=starQ%></h4>
         <iframe src="<%=trail.mapsLink%>" width="600" height="450" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>

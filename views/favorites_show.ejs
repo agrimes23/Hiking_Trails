@@ -17,10 +17,22 @@
           <h4>Name: <%=fav.trailName%></h4>
           <h4>Description: <%=fav.description%></h4>
           <h4>Miles: <%=fav.length%></h4>
-          <h4>Difficulty: <%=fav.difficulty%></h4>
-          <h4>Quality: <%=fav.quality%></h4>
+          <h4>Difficulty:
+            <%let star = "⭐"%>
+            <%for (let i=0; i< parseInt(fav.difficulty); i++) {%>
+              <%star+='⭐'%>
+            <%}%>
+            <%=star%>
+
+          </h4>
+          <h4>Quality:
+            <%let starQ = "⭐"%>
+            <%for (let j=0; j< parseInt(fav.quality); j++) {%>
+              <%starQ+='⭐'%>
+            <%}%>
+            <%=starQ%></h4>
         </div>
-      </div>      
+      </div>
       <a href="/favorites/<%=fav._id%>/edit">
         <button class="btn btn-info btn-edit-fav" type="submit" name="button">Edit Fav</button>
       </a>

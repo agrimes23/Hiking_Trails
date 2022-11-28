@@ -76,7 +76,12 @@
             </div>
             <div class="card-body d-flex flex-column text-white justify-content-center">
               <h5 class="card-title"><%=trails[i].trailName%></h5>
-              <p class="card-text"><%=trails[i].difficulty%></p>
+              <p class="card-text">
+                <%let star = "⭐"%>
+                <%for (let j=0; j< (parseInt(trails[i].difficulty)); j++) {%>
+                  <%star+='⭐'%>
+                <%}%>
+                <%=star%></p></p>
             </div>
 
           </div>
