@@ -19,10 +19,10 @@ global.document = document;
 var $ = require("jquery")(window);
 
 
-// TrailSchema.create(Data, (error, createdTrails) => {
-// //^your schema  //^your pokemon.js
-//   console.log("done!");
-// })
+TrailSchema.create(Data, (error, createdTrails) => {
+//^your schema  //^your pokemon.js
+  console.log("done!");
+})
 
 // Index Pages
 app.get("/", (req, res) => {
