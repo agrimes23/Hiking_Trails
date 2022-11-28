@@ -17,18 +17,12 @@
 <p>I also included google maps by embedding the iframe code in to my show page. There's a link on the google maps site that has the code ready to put in your code.</p>
 
 <h3>Things I struggled with</h3>
-<li>
-<p>
-I tried incorporating jQuery into my code. I learned how to do it but never successfully used it. I wrote vanilla js instead to make the stars work. But it should be quick to rewrite the vanilla js code to jQuery since they are very similar.
+<li><p>I tried incorporating jQuery into my code. I learned how to do it but never successfully used it. I wrote vanilla js instead to make the stars work. But it should be quick to rewrite the vanilla js code to jQuery since they are very similar.
 </p>
 </li>
-<li>
-<p>
-I couldn't find a way to successfully use mongo relationships. I think I was very close to complete it, but I ran out of time.
+<li><p>I couldn't find a way to successfully use mongo relationships. I think I was very close to complete it, but I ran out of time.
 </p>
 </li>
-<li>
-<p>
-I would like to try to use the google maps API. I saw that option when I was looking into the embedded google maps, but did not look into it too much.
+<li><p>I would like to try to use the google maps API. I saw that option when I was looking into the embedded google maps, but did not look into it too much.
 </p>
 </li>
