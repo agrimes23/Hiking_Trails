@@ -50,6 +50,9 @@ h3 {
   opacity: 50%;
 }
 
+.stars a.active {
+  opacity: 100%;
+}
 
 .carousel-img {
   width:100%;

@@ -7,10 +7,10 @@ const trailsSchema = new mongoose.Schema({
   mapsLink: String,
   description: String,
   length: Number,
-  difficulty: String,
+  difficulty: Number,
   quality: String,
   liked: {type: Boolean, default: false},
-  // favoritedItems: {type: [Favorite.schema], ref: "Favorite"}
+  favoritedItems: {type: [Favorite.schema], ref: "Favorite"}
 })
 
 const trailsCollection = mongoose.model('trailInfo', trailsSchema)

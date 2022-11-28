@@ -11,25 +11,18 @@ const Data = require('./models/hiking_data.js')
 app.use( express.static( "public" ) );
 app.use(methodOverride('_method'));
 
-var jsdom = require('jsdom')
-const dom = new jsdom.JSDOM("")
-const jquery = require("jquery")(dom.window)
+var jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
+var $ = require("jquery")(window);
 
 
 // TrailSchema.create(Data, (error, createdTrails) => {
 // //^your schema  //^your pokemon.js
 //   console.log("done!");
 // })
-
-
-
-
-// let addToCartButtons = dom.window.document.querySelectorAll("a.addtocartbutton");
-//
-// addToCartButtons.forEach(btn => btn.addEventListener("click", (event) => {
-//     // event.preventDefault();
-//     console.log(event);
-// }));
 
 // Index Pages
 app.get("/", (req, res) => {
@@ -40,13 +33,6 @@ app.get("/", (req, res) => {
   })
 })
 
-// app.get("/favorites", (req, res) => {
-//   TrailSchema.find({liked: true}, (error, allFavs) => {
-//     res.render('favorites_index.ejs', {
-//       favs: allFavs
-//     })
-//   })
-// })
 
 app.get("/favorites", (req, res) => {
   FavoritesSchema.find({}, (error, allFavs) => {
